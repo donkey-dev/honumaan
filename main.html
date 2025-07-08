@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            height: 130vh;
+            width: 100vw;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-image: url('/download\ \(3\).jpg');
+        }
+
+        .celing-box {
+            padding-top: 50px;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            height: 100px;
+        }
+
+        .celing {
+            background-color: black;
+            height: 20px;
+            width: 600px;
+        }
+
+        .clickbox {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 350px;
+        }
+
+        .balloon-container {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            cursor: pointer;
+            transition: transform 5s ease-in;
+        }
+
+        .balloon {
+            display: flex;
+            overflow: hidden;
+            justify-content: center;
+            align-items: center;
+            width: 70px;
+            height: 80px;
+            /* background: radial-gradient(circle at 30% 30%, #ff4d6d, #ff1c3d); */
+            border-radius: 50% 50% 50% 50%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* .balloon img{
+            object-fit;
+        } */
+
+        .string {
+            width: 2px;
+            height: 60px;
+            background: #333;
+            margin: 0 auto;
+        }
+
+        #b2 {
+            left: 40%;
+            bottom: -8%;
+        }
+
+        #b3 {
+            left: 60%;
+            bottom: -8%;
+        }
+
+        .page-end {
+            height: 100px;
+        }
+
+        #b4 {
+            left: 30%;
+            bottom: -16%;
+        }
+
+        #b5 {
+            left: 70%;
+            bottom: -16%;
+        }
+
+        #b6 {
+            left: 35%;
+            bottom: -24%;
+        }
+
+        #b7 {
+            left: 65%;
+            bottom: -24%;
+        }
+
+        #b8 {
+            left: 45%;
+            bottom: -24%;
+        }
+
+        #b9 {
+            left: 55%;
+            bottom: -24%;
+        }
+
+        .click {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            justify-content: space-between;
+            padding: 0 5%;
+        }
+
+        .bx {
+            background-color: #333;
+            height: 200px;
+            width: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+
+        }
+
+        .bx img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="celing-box">
+            <div class="celing" id="cb"></div>
+        </div>
+        <div class="clickbox">
+            <div class="click">
+                <div class="bx"><img src="/download (8).jpg" alt=""></div>
+                <h1>
+                    Click the balloon
+                </h1>
+                <div class="bx"><img src="/download (8).jpg" alt=""></div>
+            </div>
+        </div>
+        <div class="all-balloon">
+            <div class="c1 balloon-container" id="mb" onclick="flyBalloon()">
+                <div class="balloon"><img src="/Sparkling Pastel Rainbow - Watercolor Glitter Background.jpg"
+                        alt=""></div>
+                <div class="string"></div>
+            </div>
+            <div class="c2 balloon-container" id="b2">
+                <div class="balloon"><img src="/download (4).jpg" alt=""></div>
+                <div class="string"></div>
+            </div>
+            <div class="c2 balloon-container" id="b3">
+                <div class="balloon"><img src="/download (5).jpg" alt=""></div>
+                <div class="string"></div>
+            </div>
+            <div class="c3 balloon-container" id="b4">
+                <div class="balloon"><img src="/download (6).jpg" alt=""></div>
+                <div class="string"></div>
+            </div>
+            <div class="c3 balloon-container" id="b5">
+                <div class="balloon"><img
+                        src="/5 Ways to Improve Your Credit Score ☆☆☆ 5 Effective Ways to Improve Your Credit Score.jpg"
+                        alt=""></div>
+                <div class="string"></div>
+            </div>
+            <div class="c4 balloon-container" id="b6">
+                <div class="balloon"><img
+                        src="/_Purple Star Galaxy _ Photographic Print for Sale by newburyboutique.jpg" alt="">
+                </div>
+                <div class="string"></div>
+            </div>
+            <div class="c4 balloon-container" id="b7">
+                <div class="balloon"><img
+                        src="/Download free image of Blue sky with stars and bokeh backgrounds abstract outdoors_ about wallpaper, backgrounds, star, abstract backgrounds, and galaxy 14050446.jpg"
+                        alt=""></div>
+                <div class="string"></div>
+            </div>
+            <div class="c4 balloon-container" id="b8">
+                <div class="balloon"><img
+                        src="/Download free image of Rainbows and stars space astronomy universe_  by Tang about abstract backgrounds, star field, space and astronomy, rainbows and stars, and vibrant color 12890229.jpg"
+                        alt=""></div>
+                <div class="string"></div>
+            </div>
+            <div class="c4 balloon-container" id="b9">
+                <div class="balloon"><img src="/Galaxia (Fondo de pantalla_Wallpaper).jpg" alt=""></div>
+                <div class="string"></div>
+            </div>
+        </div>
+        <div class="page-end"></div>
+
+
+    </div>
+    <script>
+        function flyBalloon() {
+            for (let i = 0; i < 4; i++) {
+                const balloons = document.querySelectorAll(`.c${i + 1}`);
+                let dist = i * 56;
+                balloons.forEach(el => {
+                    el.style.transform = `translate(-50%, -${520 + dist}px)`;
+                })
+            }
+
+
+            const interval = setInterval(() => {
+                const balloonTop = document.getElementById("mb").getBoundingClientRect().top;
+                const ceilingBottom = document.getElementById("cb").getBoundingClientRect().bottom;
+
+                if (balloonTop <= ceilingBottom) {
+                    clearInterval(interval);
+                    window.location.href = "card"; 
+                }
+            }, 100);
+
+        }
+
+
+        // function flyBalloon(el) {
+        //     el.style.transform = "translate(-50%, -540px)";
+        // }
+    </script>
+
+</body>
+
+</html>

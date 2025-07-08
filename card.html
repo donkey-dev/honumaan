@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 100vw;
+            height: 158vh;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-image: url('/cardpageimg/ChatGPT\ Image\ Jul\ 7\,\ 2025\,\ 07_42_27\ PM.png');
+            gap: 2vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .intro {
+            display: flex;
+            height: 30vh;
+            width: 90vw;
+            padding: 50px 50px 50px 50px;
+            justify-content: space-between;
+        }
+
+        .img-part {
+            position: relative;
+        }
+
+        .wish {
+            width: 40vw;
+        }
+
+        .img-cont {
+            height: 20.6667vh;
+            width: 8.33333vw;
+            /* background-color: aqua; */
+            overflow: hidden;
+        }
+
+        .img-cont img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+
+        #c1 {
+            position: absolute;
+            transform: rotate(-30deg);
+        }
+
+        #c2 {
+            position: absolute;
+            left: 6vw;
+            background-color: bisque;
+            top: -3.5vh;
+            transform: rotate();
+            z-index: 1;
+        }
+
+        #c3 {
+            position: absolute;
+            left: 12vw;
+            transform: rotate(30deg);
+            z-index: 1;
+        }
+
+        .wish p {
+            color: white;
+        }
+
+        .display {
+            /* width: 90vw;
+            height: 56vh;
+            padding: 50px 50px 50px 50px;
+            justify-content: space-between; */
+            width: 90vw;
+            padding: 50px 0;
+            display: flex;
+            /* flex-direction: column; */
+            align-items: center;
+            justify-content: center;
+        }
+
+
+
+        /* Book part */
+
+
+
+        .book {
+            /* left: 15%;
+            width: 500px;
+            height: 300px;
+            position: relative;
+            transform-style: preserve-3d;
+            perspective: 2000px; */
+            width: 26.04vw;
+            height: 32vh;
+            position: relative;
+            transform-style: preserve-3d;
+            perspective: 2000px;
+            margin-bottom: 30px;
+        }
+
+        .sheet {
+            width: 100%;
+            height: 100%;
+            transform-origin: left;
+            position: absolute;
+            transform-style: preserve-3d;
+            transition: transform 1s ease;
+        }
+
+        .page {
+            width: 50%;
+            height: 100%;
+            position: absolute;
+            background: white;
+            border: 1px solid #ccc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            backface-visibility: hidden;
+            transform-origin: left;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+            -webkit-backface-visibility: hidden;
+            transform-style: preserve-3d;
+        }
+
+        .front {
+            left: 0;
+            transform: rotateY(0deg);
+            background-color: lightcoral;
+            transform-origin: left;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            z-index: 2;
+        }
+
+        .back {
+            right: 0;
+            transform: rotateY(180deg);
+            background-color: lightblue;
+            transform-origin: left;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            z-index: 1;
+        }
+
+        .flipped {
+            transform: rotateY(-180deg);
+            z-index: 1;
+        }
+
+        .buttons {
+            /* width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+            position: relative;
+            z-index: 200; */
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            z-index: 200;
+
+        }
+
+        button {
+            padding: 10px 10px;
+            margin: 0 10px;
+            font-size: 1rem;
+            background-color: transparent;
+            border-radius: 50px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+            color: #deefed;
+            cursor: pointer;
+        }
+
+        .page img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+
+        /* video frames */
+        .tv {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            padding-top: 8vh;
+            height: 60vh;
+            /* width: 100%; */
+            width: 90vw;
+            
+        }
+
+        .frame {
+            width: 30vw;
+            height: 40vh;
+            position: relative;
+            display: flex;
+            overflow: hidden;
+            align-items: center;
+            border-radius: 5%;
+        }
+
+        .frame img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .frame video {
+            /* top: 15%;
+            bottom: 15%; */
+            width: 100%;
+            height: 70%;
+            position: absolute;
+        }
+
+        .mobile{
+            width: 10vw;
+            height: 40vh;
+            position: relative;
+            display: flex;
+            overflow: hidden;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10%;
+        }
+        .mobile img {
+            position: absolute;
+            width: 104%;
+            height: 104%;
+            object-fit: cover;
+            z-index: 2;
+            pointer-events: none;
+        }
+        .mobile video{
+            position: absolute;
+            width: 95%;
+            height: 95%;
+            object-fit: cover;
+            z-index: 1;
+        }
+
+        .tablet{
+            width: 14vw;
+            height: 38vh;
+            position: relative;
+            display: flex;
+            overflow: hidden;
+            align-items: center;
+            justify-content: center;
+        }
+        .tablet img {
+            position: absolute;
+            width: 104%;
+            height: 104%;
+            object-fit: cover;
+            z-index: 2;
+            pointer-events: none;
+        }
+        .tablet video{
+            position: absolute;
+            width: 95%;
+            height: 95%;
+            object-fit: cover;
+            z-index: 1;
+        }
+        .hbd{
+            display: flex;
+            width: 90vw;
+            justify-content: end;
+            align-items: center;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="intro">
+            <div class="img-part">
+                <div class="img-cont" id="c1">
+                    <img src="/cardpageimg/IMG-20241001-WA0191.jpg" alt="">
+                </div>
+                <div class="img-cont" id="c2">
+                    <img src="/cardpageimg/IMG_20250705_134809.jpg" alt="">
+                </div>
+                <div class="img-cont" id="c3">
+                    <img src="/cardpageimg/IMG-20241220-WA0429.jpg" alt="">
+                </div>
+            </div>
+            <div class="wish">
+                <p>Happy birthday gulu honumaan. Thank you for your presence in my life and everythiiiiing which I can't describe. Enjoy every day to the fullest and I hope every day of yours compounds to more happiness. May you persue every dream of yours and fullfill it. Again happpyyyy birthdayyyy.........aj gache besi kore lafashhh🌝❤️🧿</p>
+                <div class="song">
+                    <audio src=""></audio>
+                </div>
+            </div>
+        </div>
+
+        <div class="display">
+            <div class="book" id="book">
+                <!-- Each page pair (left and right) -->
+                <div class="sheet" id="sheet1">
+                    <div class="page front"><img src="/cardpageimg/TANIYA.png" alt=""></div>
+                    <div class="page back"><img src="/cardpageimg/IMG-20241220-WA0317.jpg" alt=""></div>
+                </div>
+                <div class="sheet" id="sheet2">
+                    <div class="page front"><img src="/cardpageimg/IMG-20250301-WA0188.jpg" alt=""></div>
+                    <div class="page back"><img src="/cardpageimg/IMG-20250412-WA0014.jpg" alt=""></div>
+                </div>
+                <!-- add more sheets here -->
+                <div class="sheet" id="sheet3">
+                    <div class="page front"><img src="/cardpageimg/IMG-20250625-WA0027.jpg" alt=""></div>
+                    <div class="page back"><img src="/cardpageimg/IMG-20250704-WA0405.jpg" alt=""></div>
+                </div>
+                <div class="sheet" id="sheet4">
+                    <div class="page front"><img src="/cardpageimg/IMG-20250704-WA0445.jpg" alt=""></div>
+                    <div class="page back"><img src="/cardpageimg/IMG_20250705_134140.jpg" alt=""></div>
+                </div>
+                <div class="sheet" id="sheet5">
+                    <div class="page front"><img src="/cardpageimg/IMG_20250625_165625.jpg" alt=""></div>
+                    <div class="page back"><img src="/cardpageimg/IMG-20241220-WA0047.jpg" alt=""></div>
+                </div>
+            </div>
+            <div class="buttons">
+                <button id="prevBtn">⬅ Prev</button>
+                <button id="nextBtn">Next ➡</button>
+            </div>
+
+        </div>
+        <div class="tv">
+            <div class="mobile">
+                <img src="/cardpageimg/mobileframe.png" alt="" class="mobileframe">
+                <video src="/cardpageimg/VID-20250703-WA0016.mp4" onclick="playmobile()" id="mobileVideo"></video>
+            </div>
+            <div class="frame">
+                <img src="/cardpageimg/tvframe.png" alt="" class="tvframe">
+                <video src="/cardpageimg/VID-20250703-WA0024.mp4" class="content"  onclick="playvideo()" id="tvVideo"></video>
+            </div>
+            <div class="tablet">
+                <img src="/cardpageimg/Comprimido, Tecnologia, Dispositivo PNG, Dispositivo Tablet Imagens Vetoriais, Arquivos PSD - Pngtree.png" alt="" class="tabimg">
+                <video src="/cardpageimg/2025-07-08_1751913861762.mp4" class="tabvideo" onclick="playtab()" id="tabVideo"></video>
+            </div>
+        </div>
+        <div class="hbd">
+            <h2>For the last time happyyyyy birthdayyy gulu houmaannn....🩷🩷🩷</h2>
+        </div>
+    </div>
+
+    <script>
+        let currentSheet = 0;
+        const sheets = document.querySelectorAll(".sheet");
+
+        sheets.forEach((sheet, i) => {
+            sheet.style.zIndex = sheets.length - i;
+        });
+
+        document.getElementById("nextBtn").addEventListener("click", () => {
+            if (currentSheet < sheets.length) {
+                sheets[currentSheet].classList.add("flipped");
+                sheets[currentSheet].style.zIndex = 100 + currentSheet; // push to top
+                currentSheet++;
+            }
+        });
+
+        document.getElementById("prevBtn").addEventListener("click", () => {
+            if (currentSheet > 0) {
+                currentSheet--;
+                sheets[currentSheet].classList.remove("flipped");
+                sheets[currentSheet].style.zIndex = sheets.length - currentSheet; // reassign z-index correctly
+            }
+        });
+
+
+        //For video playing purpose
+        function playvideo() {
+            const video = document.getElementById("tvVideo");
+            if (video.paused) video.play();
+            else video.pause();
+        }
+        function playmobile() {
+            const mbvideo = document.getElementById("mobileVideo");
+            if (mbvideo.paused) mbvideo.play();
+            else mbvideo.pause();
+        }
+        function playtab() {
+            const tbvideo = document.getElementById("tabVideo");
+            if (tbvideo.paused) tbvideo.play();
+            else tbvideo.pause();
+        }
+    </script>
+
+</body>
+
+</h
